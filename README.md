@@ -1,7 +1,7 @@
 [![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
 
 # PowerRelic
-PowerRelic is a PowerShell script module with various cmdlets used to interact with both [NerdGraph API]() and the [REST v2 API]() for New Relic.
+PowerRelic is a PowerShell script module with various cmdlets used to interact with both [NerdGraph API](https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph) and the [REST v2 API](https://docs.newrelic.com/docs/apis/rest-api-v2) for New Relic.
 
 ## Open source license
 
@@ -11,7 +11,7 @@ This project is distributed under the [Apache 2 license](LICENSE).
 
 Required:
 
-  * This module was built to be compatible with PowerShell v 6.0+ (aka "PowerShell Core")
+  * This module was built to be compatible with PowerShell v 6.0+ (aka "[PowerShell Core](https://github.com/PowerShell/PowerShell)")
   
 # Support
 

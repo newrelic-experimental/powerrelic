@@ -1,67 +1,82 @@
-#region Top of Script
-
-#requires -version 2
-
 <#
 .SYNOPSIS
-    Function to list New Relic Alert Policies for an account
+
+Lists Alert Policies for an account.
 
 .DESCRIPTION
-    https://rpm.newrelic.com/api/explore/alerts_policies/list
-    https://docs.newrelic.com/docs/alerts/rest-api-alerts/new-relic-alerts-rest-api/rest-api-calls-new-relic-alerts#policies-list
+
+The Get-NRAlertPolicies cmdlet queries NerdGraph for either a specific alert policy by ID, or a list of all alert policies within an account.
+
+.PARAMETER PersonalAPIKey
+
+[REQUIRED] The Personal API Key to be used with the NerdGraph API.
+
+.PARAMETER AccountID
+
+[REQUIRED] The New Relic Account ID to be queried against.
+
+.PARAMETER PolicyID
+
+[OPTIONAL] A single Alert Policy ID to be queried.
+
+.OUTPUTS
+
+id: Alert Policy ID
+incidentPreference: Alert Policy Incident Preference
+name: Alert Policy Name
 
 .EXAMPLE
-    Get-NRAlertPolicies -AccountAPIKey '1a2b3c4d5e6f'
-        List all Alert Policies for an Account
-		
-	Get-NRAlertPolicies -AccountAPIKey '1a2b3c4d5e6f' -FilterName 'abcdefg'
-        List all Alert Policies for an Account, using the search pattern *abcdefg*
-		Note the -ExactMatch parameter is defaulted to 'false'
-	
-	Get-NRAlertPolicies -AccountAPIKey '1a2b3c4d5e6f' -FilterName 'abcdefg' -ExactMatch true
-        List all Alert Policies for an Account, with a filter for an exact match of 'abcdefg'
 
-.NOTES
-    Version:        1.0
-    Author:         Zack Mutchler
-    Creation Date:  12/31/2019
-    Purpose/Change: Initial Script development
+PS> Get-NRAlertPolicies -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' -AccountID 1234567
+List all Alert Policies for Account ID 1234567
+
+.EXAMPLE
+
+PS> Get-NRAlertPolicies -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' -AccountID 1234567 -PolicyID 98765
+Find and list Alert Policy ID 98765 for Account ID 1234567
 #>
-
-#endregion
-
-#####-----------------------------------------------------------------------------------------#####
-
 Function Get-NRAlertPolicies {
 
-    Param (
+[ cmdletbinding() ]
+Param (
 
-        [ Parameter (Mandatory = $true ) ] [ string ] $AccountAPIKey,
-        [ Parameter (Mandatory = $false ) ] [ string ] $FilterName,
-        [ Parameter (Mandatory = $false ) ] [ ValidateSet( 'true', 'false' ) ] [ string ] $ExactMatch = 'false'
+    [ Parameter ( Mandatory = $true ) ] [ string ] $PersonalAPIKey,
+    [ Parameter ( Mandatory = $true ) ] [ int ] $AccountID,
+    [ Parameter ( Mandatory = $false ) ] [ int ] $PolicyID
 
-    )
+)
 
-# Set the target URI if no FilterName is provided
-If ( ( !$FilterName ) ) {
+# Set the NerdGraph URL
+$nerdGraphUrl = 'https://api.newrelic.com/graphql'
 
-$getPoliciesUri = "https://api.newrelic.com/v2/alerts_policies.json"
+# Build our authentication header
+$header = @{ 'API-Key' = $PersonalAPIKey }
+
+# Build our query payload based on whether $PolicyID is provided or not
+
+If( $PolicyID ) {
+
+$alertPolicyQuery = @"
+{
+    "query": "{ actor { account(id: $AccountID) { alerts { policiesSearch(searchCriteria: {ids: $PolicyID}) { policies { id name incidentPreference } } } } } }",
+    "variables": null
+}
+"@
 
 }
 
-# Set the target URI with provided filter
 Else {
 
-$getPoliciesUri = "https://api.newrelic.com/v2/alerts_policies.json/?filter[name]=" + $FilterName + '&filter[exact_match]=' + $ExactMatch
+$alertPolicyQuery = @"
+{
+    "query": "{ actor { account(id: $AccountID) { alerts { policiesSearch { policies { id name incidentPreference } } } } } }",
+    "variables": null
+}
+"@
 
 }
-
-# Set the headers to pass
-$headers = @{ 'X-Api-Key' = $AccountAPIKey; 'Content-Type' = 'application/json' }
-
-# Query the API
-Write-Host "Query URL: $( $getPoliciesUri )" -ForegroundColor Cyan
-$results = ( Invoke-RestMethod -Method Get -Uri $getPoliciesUri -Headers $headers ).policies
+# Query the NerdGraph API
+$results = ( Invoke-RestMethod -Method Post -Uri $nerdGraphUrl -ContentType 'application/json' -Headers $header -Body $alertPolicyQuery ).data.actor.account.alerts.policiesSearch.policies
 
 RETURN $results
 
