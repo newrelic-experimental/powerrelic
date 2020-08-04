@@ -1,39 +1,31 @@
 <#
-.SYNOPSIS
-
-Lists Alert Policies for an account.
-
-.DESCRIPTION
-
-The Get-NRAlertPolicies cmdlet queries NerdGraph for either a specific alert policy by ID, or a list of all alert policies within an account.
-
-.PARAMETER PersonalAPIKey
-
-[REQUIRED] The Personal API Key to be used with the NerdGraph API.
-
-.PARAMETER AccountID
-
-[REQUIRED] The New Relic Account ID to be queried against.
-
-.PARAMETER PolicyID
-
-[OPTIONAL] A single Alert Policy ID to be queried.
-
-.OUTPUTS
-
-id: Alert Policy ID
-incidentPreference: Alert Policy Incident Preference
-name: Alert Policy Name
-
-.EXAMPLE
-
-PS> Get-NRAlertPolicies -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' -AccountID 1234567
-List all Alert Policies for Account ID 1234567
-
-.EXAMPLE
-
-PS> Get-NRAlertPolicies -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' -AccountID 1234567 -PolicyID 98765
-Find and list Alert Policy ID 98765 for Account ID 1234567
+  .SYNOPSIS
+  Lists Alert Policies for an account.
+  
+  .DESCRIPTION
+  The Get-NRAlertPolicies cmdlet queries NerdGraph for either a specific alert policy by ID, or a list of all alert policies within an account.
+  
+  .PARAMETER PersonalAPIKey
+  [REQUIRED] The Personal API Key to be used with the NerdGraph API.
+  
+  .PARAMETER AccountID
+  [REQUIRED] The New Relic Account ID to be queried against.
+  
+  .PARAMETER PolicyID
+  [OPTIONAL] A single Alert Policy ID to be queried.
+  
+  .OUTPUTS
+  id: Alert Policy ID
+  incidentPreference: Alert Policy Incident Preference
+  name: Alert Policy Name
+  
+  .EXAMPLE
+  PS> Get-NRAlertPolicies -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' -AccountID 1234567
+  List all Alert Policies for Account ID 1234567
+  
+  .EXAMPLE
+  PS> Get-NRAlertPolicies -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' -AccountID 1234567 -PolicyID 98765
+  Find and list Alert Policy ID 98765 for Account ID 1234567
 #>
 Function Get-NRAlertPolicies {
 
