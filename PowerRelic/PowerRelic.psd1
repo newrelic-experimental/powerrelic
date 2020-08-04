@@ -33,7 +33,7 @@ Copyright = '(c) thezackm. All rights reserved.'
 Description = 'PowerShell module to interact with various New Relic APIs'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '5'
+PowerShellVersion = '6.0'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
