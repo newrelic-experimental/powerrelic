@@ -11,7 +11,7 @@ This project is distributed under the [Apache 2 license](LICENSE).
 
 Required:
 
-  * This module was built to be compatible with PowerShell v 6.0+ (aka "[PowerShell Core](https://github.com/PowerShell/PowerShell)")
+  * This module was built to be compatible with PowerShell v 6.0+ (aka "[PowerShell Core](https://github.com/PowerShell/PowerShell)") for cross-platform compatibility and to take advantage of the [-FollowRelLink](https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-7#web-cmdlets) switch added to the [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7) cmdlet.
   
 # Support
 
