@@ -68,7 +68,7 @@ $alertPolicyQuery = @"
 
 }
 # Query the NerdGraph API
-$results = ( Invoke-RestMethod -Method Post -Uri $nerdGraphUrl -ContentType 'application/json' -Headers $header -Body $alertPolicyQuery ).data.actor.account.alerts.policiesSearch.policies
+$results = ( Invoke-RestMethod -Method Post -Uri $nerdGraphUrl -FollowRelLink -ContentType 'application/json' -Headers $header -Body $alertPolicyQuery ).data.actor.account.alerts.policiesSearch.policies
 
 RETURN $results
 
