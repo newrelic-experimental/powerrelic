@@ -75,6 +75,11 @@ $muteRulesQuery = @"
 }
 "@
 
+# Query the NerdGraph API
+$results = ( Invoke-RestMethod -Method Post -Uri $nerdGraphUrl -FollowRelLink -ContentType 'application/json' -Headers $header -Body $muteRulesQuery ).data.actor.account.alerts.mutingRule
+
+RETURN $results
+
 }
 
 Else {
@@ -86,11 +91,11 @@ $muteRulesQuery = @"
 }
 "@
 
-}
-
 # Query the NerdGraph API
 $results = ( Invoke-RestMethod -Method Post -Uri $nerdGraphUrl -FollowRelLink -ContentType 'application/json' -Headers $header -Body $muteRulesQuery ).data.actor.account.alerts.mutingRules
 
 RETURN $results
+
+}
 
 }
