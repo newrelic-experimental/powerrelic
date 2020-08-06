@@ -70,7 +70,7 @@ If( $RuleID ) {
     
 $muteRulesQuery = @"
 {
-    "query":"{ actor { account(id: $accountID) { alerts { mutingRule(id: $RuleID) { id name createdAt createdByUser { email name id } enabled description schedule { timeZone startTime endTime } status condition { operator conditions { attribute operator values } } updatedAt updatedByUser { email name id } } } } } }",
+    "query": "{ actor { account(id: $accountID) { alerts { mutingRule(id: $RuleID) { id name createdAt createdByUser { email name id } enabled description schedule { timeZone startTime endTime } status condition { operator conditions { attribute operator values } } updatedAt updatedByUser { email name id } } } } } }",
     "variables": null
 }
 "@
@@ -86,7 +86,7 @@ Else {
     
 $muteRulesQuery = @"
 {
-    "query":"{ actor { account(id: $accountID) { alerts { mutingRules { id name createdAt createdByUser { email name id } enabled description schedule { timeZone startTime endTime } status condition { operator conditions { attribute operator values } } updatedAt updatedByUser { email name id } } } } } }",
+    "query": "{ actor { account(id: $accountID) { alerts { mutingRules { id name createdAt createdByUser { email name id } enabled description schedule { timeZone startTime endTime } status condition { operator conditions { attribute operator values } } updatedAt updatedByUser { email name id } } } } } }",
     "variables": null
 }
 "@
