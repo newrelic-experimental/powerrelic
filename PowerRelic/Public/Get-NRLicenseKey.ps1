@@ -35,7 +35,7 @@ $nerdGraphUrl = 'https://api.newrelic.com/graphql'
 $header = @{ 'API-Key' = $PersonalAPIKey }
 
 # Build our query payload
-$providersQuery = @"
+$licenseQuery = @"
 {
     "query": "{ actor { account(id: $AccountID) { licenseKey } } }",
     "variables": ""
@@ -43,7 +43,7 @@ $providersQuery = @"
 "@
 
 # Query the NerdGraph API
-$results = ( Invoke-RestMethod -Method Post -Uri $nerdGraphUrl -ContentType 'application/json' -Headers $header -Body $providersQuery ).data.actor.account
+$results = ( Invoke-RestMethod -Method Post -Uri $nerdGraphUrl -ContentType 'application/json' -Headers $header -Body $licenseQuery ).data.actor.account
 
 RETURN $results
 
