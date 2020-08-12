@@ -3,7 +3,7 @@
   Queries New Relic for a list of New Relic One Catalog applications.
   
   .DESCRIPTION
-  The Get-NR1Catalog cmdlet queries NerdGraph a list of all applications in the New Relic One Application Catalog.
+  The Get-NR1Catalog cmdlet queries NerdGraph for a list of all applications in the New Relic One Application Catalog.
   
   .PARAMETER PersonalAPIKey
   [REQUIRED] The Personal API Key to be used with the NerdGraph API.
