@@ -1,12 +1,15 @@
 <#
   .SYNOPSIS
-  Queries New Relic for a list of New Relic One Catalog applications.
+  Queries New Relic for a list of workloads.
   
   .DESCRIPTION
-  The Get-NRWorkloads cmdlet queries NerdGraph for a list of all applications in the New Relic One Application Catalog.
+  The Get-NRWorkloads cmdlet queries NerdGraph for a list of all workloads assigned to an account.
   
   .PARAMETER PersonalAPIKey
   [REQUIRED] The Personal API Key to be used with the NerdGraph API.
+  
+  .PARAMETER AccountID
+  [REQUIRED] The New Relic Account ID to be queried against.
   
   .OUTPUTS
   createdAt: The DateTime this workload was created
