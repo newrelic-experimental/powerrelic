@@ -3,7 +3,7 @@
   Queries New Relic for all entities assigned to a workload.
   
   .DESCRIPTION
-  The Get-NRWorkloadEntities cmdlet queries NerdGraph for a list of all entites assigned to a target workload.
+  The Get-NRWorkloadEntities cmdlet queries NerdGraph for a list of all entities assigned to a target workload.
   
   .PARAMETER PersonalAPIKey
   [REQUIRED] The Personal API Key to be used with the NerdGraph API.
