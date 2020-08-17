@@ -12,7 +12,7 @@
   [REQUIRED] The New Relic Account ID to be queried against.
   
   .OUTPUTS
-  createdAt: The DateTime this workload was created
+  createdAt: The DateTime (epoch) this workload was created
   createdBy:
       .email: The user's email address who created this workload
       .id: The user's ID who created this workload
@@ -22,7 +22,7 @@
   permalink: The permalink URL of this workload
   scopeAccounts:
       .accountIds: List of accounts that will be used to get entities from
-  updatedAt: The DateTime this workload was last updated
+  updatedAt: The DateTime (epoch) this workload was last updated
 
   .EXAMPLE
   PS> Get-NRWorkloads -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' -AccountID 1234567
