@@ -25,7 +25,7 @@
   updatedAt: The DateTime this workload was last updated
 
   .EXAMPLE
-  PS> Get-NRWorkloads -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' - AccountID 1234567
+  PS> Get-NRWorkloads -PersonalAPIKey 'NRAK-123456789ABCDEFGHIJKLMNOPQR' -AccountID 1234567
   List all workloads currently in account 1234567
 #>
 Function Get-NRWorkloads {
