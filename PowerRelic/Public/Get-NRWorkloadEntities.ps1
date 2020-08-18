@@ -11,7 +11,7 @@
   .PARAMETER AccountID
   [REQUIRED] The New Relic Account ID to be queried against.
   
-  .PARAMETER AccountID
+  .PARAMETER GUID
   [REQUIRED] The GUID of the target workload.
   
   .OUTPUTS

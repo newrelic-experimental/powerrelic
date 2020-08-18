@@ -8,7 +8,7 @@
   .PARAMETER PersonalAPIKey
   [REQUIRED] The Personal API Key to be used with the NerdGraph API.
   
-  .PARAMETER AccountID
+  .PARAMETER TraceID
   [REQUIRED] The ID of the target trace.
   
   .OUTPUTS

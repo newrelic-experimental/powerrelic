@@ -8,7 +8,7 @@
   .PARAMETER PersonalAPIKey
   [REQUIRED] The Personal API Key to be used with the NerdGraph API.
   
-  .PARAMETER AccountID
+  .PARAMETER GUID
   [REQUIRED] The GUID of the target entity.
   
   .OUTPUTS
