@@ -11,8 +11,11 @@
   .PARAMETER AccountID
   [REQUIRED] The New Relic Account ID to be queried against.
   
-  .PARAMETER PolicyID
-  [OPTIONAL] A single Muting Rule ID to be queried.
+  .PARAMETER SearchParameter
+  [REQUIRED] The type of search to perform.
+  
+  .PARAMETER SearchValue
+  [REQUIRED] The search parameters to evaluate against.
   
   .OUTPUTS
   description: NRQL condition custom violation description
