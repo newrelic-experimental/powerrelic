@@ -3,7 +3,7 @@
   Queries New Relic for the entities of a distributed trace.
   
   .DESCRIPTION
-  The Get-NRTraceEntities cmdlet queries NerdGraph for the entites related to a target distributed trace.
+  The Get-NRTraceEntities cmdlet queries NerdGraph for the entities related to a target distributed trace.
   
   .PARAMETER PersonalAPIKey
   [REQUIRED] The Personal API Key to be used with the NerdGraph API.
