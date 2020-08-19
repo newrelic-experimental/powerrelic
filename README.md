@@ -38,7 +38,7 @@ New Relic has open-sourced this project. This project is provided AS-IS WITHOUT 
 
 # Issues / Enhancement Requests
 
-Issues and enhancement requests can be submitted in the [Issues tab of this repository](../issues). Please search for and review the existing open issues before submitting a new issue.
+Issues and enhancement requests can be submitted in the [Issues tab of this repository](../../issues). Please search for and review the existing open issues before submitting a new issue.
 
 # Contributing
 
